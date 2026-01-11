@@ -1,5 +1,5 @@
 NovaVersao: 1.0.1.0
-DataNovaVersao: 10-01-2026
-ArquivoAtualizado:https://github.com/JC-Softwares/JCSoftwares_Config/releases/download/1.01/Instalador_JC_Softwares_v1.01.exe
-DetalhesDaAtualizacao: -> Correção visual no Menu Principal; [QUEBRA]-> Correção de bugs.
-AtualizacaoObrigatoria: NÃO
+DataNovaVersao: 11-01-2026
+ArquivoAtualizado:https://github.com/JC-Softwares/JCSoftwares_Config/releases/download/1.0.1.0/Instalador_JC_Softwares_v1.0.1.0.exe
+DetalhesDaAtualizacao: -> Correção visual no Menu Principal; [QUEBRA]-> Correção na verificação de Update; [QUEBRA]-> Correção de bugs.
+AtualizacaoObrigatoria: SIM
