@@ -1,5 +1,5 @@
-NovaVersao: 1.00
-DataNovaVersao: 16-12-2025
-ArquivoAtualizado:https://raw.githubusercontent.com/JC-Softwares/JCSoftwares_Config/refs/heads/main/App_Atualizacao_Setup.exe
-DetalhesDaAtualizacao: -> Melhorias de desempenho; [QUEBRA]-> Interface de Planos reformulada; [QUEBRA]-> Correção de bug.
+NovaVersao: 1.01
+DataNovaVersao: 10-01-2026
+ArquivoAtualizado:https://github.com/JC-Softwares/JCSoftwares_Config/releases/download/1.01/Instalador_JC_Softwares_v1.01.exe
+DetalhesDaAtualizacao: -> Correção visual no Menu Principal; [QUEBRA]-> Correção de bug.
 AtualizacaoObrigatoria: NÃO
