@@ -1,5 +1,5 @@
-NovaVersao: 1.1.0.0
-DataNovaVersao: 15-01-2026
-ArquivoAtualizado:https://github.com/JC-Softwares/JCSoftwares_Config/releases/download/1.1.0.0/Atualizacao_JC_Softwares_v1.1.0.0.exe
-DetalhesDaAtualizacao: -> Correção de duplicidade de e-mal; [QUEBRA]-> Correção na exclusão de usuário; [QUEBRA]-> Correção na arquitetura do Banco de Dados.
+NovaVersao: 1.1.0.1
+DataNovaVersao: 16-01-2026
+ArquivoAtualizado:https://github.com/JC-Softwares/JCSoftwares_Config/releases/download/1.1.0.1/Atualizacao_JC_Softwares_v1.1.0.1.exe
+DetalhesDaAtualizacao: -> Atualização do Status PDV CLIENTE; [QUEBRA]-> Correção na interface; [QUEBRA]-> Correção de Bugs.
 AtualizacaoObrigatoria: SIM
