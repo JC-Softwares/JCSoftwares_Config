@@ -1,3 +1,3 @@
-StatusSuporte: Online
+StatusSuporte: Offline
 AvisoSuporte: Atendimento ativo das 08h as 18h de Seg a Sex.
 AtendentePadrao: Júlio
