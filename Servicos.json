@@ -1,0 +1,27 @@
+[
+  {
+    "codigo": "SUP-HW01",
+    "nome": "Liberação de nova chave por troca de Hardware (HWID)",
+    "valor": "Grátis"
+  },
+  {
+    "codigo": "SUP-DB02",
+    "nome": "Migração ou recuperação de banco de dados corrompido (.dat)",
+    "valor": "R$ 150,00"
+  },
+  {
+    "codigo": "SUP-LIC03",
+    "nome": "Transferência de titularidade de e-mail da licença",
+    "valor": "R$ 50,00"
+  },
+  {
+    "codigo": "SUP-NET04",
+    "nome": "Configuração de rede local e banco de dados offline compartilhado",
+    "valor": "R$ 120,00"
+  },
+  {
+    "codigo": "SUP-IMP05",
+    "nome": "Configuração e alinhamento de impressora térmica de cupom (80mm)",
+    "valor": "Grátis"
+  }
+]
