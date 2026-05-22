@@ -2,26 +2,26 @@
   {
     "codigo": "SUP-HW01",
     "nome": "Liberação de nova chave por troca de Hardware (HWID)",
-    "valor": "0 CRÉDITOS"
+    "valor": 0
   },
   {
     "codigo": "SUP-DB02",
     "nome": "Migração ou recuperação de banco de dados (.dat)",
-    "valor": "15 CRÉDITOS"
+    "valor": 15
   },
   {
     "codigo": "SUP-LIC03",
     "nome": "Transferência de titularidade de e-mail da licença",
-    "valor": "5 CRÉDITOS"
+    "valor": 5
   },
   {
     "codigo": "SUP-NET04",
     "nome": "Configuração de rede local e banco offline compartilhado",
-    "valor": "10 CRÉDITOS"
+    "valor": 10
   },
   {
     "codigo": "SUP-IMP05",
     "nome": "Configuração e alinhamento de impressora térmica (80mm)",
-    "valor": "0 CRÉDITOS"
+    "valor": 0
   }
 ]
