@@ -1,8 +1,13 @@
 [
   {
+    "codigo": "SUP-GE001",
+    "nome": "Geral",
+    "valor": 1
+  },
+  {
     "codigo": "SUP-HW01",
     "nome": "Liberação de nova chave por troca de Hardware (HWID)",
-    "valor": 0
+    "valor": 10
   },
   {
     "codigo": "SUP-DB02",
@@ -12,16 +17,11 @@
   {
     "codigo": "SUP-LIC03",
     "nome": "Transferência de titularidade de e-mail da licença",
-    "valor": 5
+    "valor": 0
   },
   {
     "codigo": "SUP-NET04",
     "nome": "Configuração de rede local e banco offline compartilhado",
     "valor": 10
-  },
-  {
-    "codigo": "SUP-IMP05",
-    "nome": "Configuração e alinhamento de impressora térmica (80mm)",
-    "valor": 0
   }
 ]
