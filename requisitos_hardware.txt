@@ -1,15 +1,128 @@
-=== CONFIGURAÇÃO RECOMENDADA JC-SOFTWARES ===
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisitos Recomendados - JC-Softwares</title>
+    <style>
+        body {
+            background-color: #12151c; /* Fundo cinza escuro moderno */
+            color: #f0f2f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
 
-Para obter o máximo desempenho do sistema e evitar travamentos,
-recomendamos que o seu computador atenda aos seguintes requisitos:
+        .card {
+            background-color: #1e222b;
+            border: 1px solid #2f3640;
+            border-radius: 16px; /* Cantos arredondados estilo celular */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 550px;
+            width: 100%;
+            overflow: hidden;
+        }
 
-• Memória RAM: Mínimo de 8 GB (Recomendado)
-• Processador: Intel Core i3 / AMD Ryzen 3 ou superior
-• Armazenamento: SSD com pelo menos 20 GB livres
-• Sistema Operacional: Windows 10 ou 11 (64 bits)
+        .header-banner {
+            background: linear-gradient(135deg, #1e3c72, #2a5298); /* Banner azul moderno */
+            padding: 25px;
+            text-align: center;
+            border-bottom: 2px solid #007bff;
+        }
 
-Caso seu hardware atual seja inferior (como sistemas com 4GB de RAM),
-o software funcionará em modo de compatibilidade otimizado, porém
-algumas operações pesadas de relatórios podem demorar mais.
+        .header-banner h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
 
-Atualizado em: 2026
+        .content {
+            padding: 30px;
+        }
+
+        .intro-text {
+            color: #a0a8b5;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        .specs-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 25px 0;
+        }
+
+        .specs-list li {
+            background-color: #161920;
+            margin-bottom: 10px;
+            padding: 14px 18px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 4px solid #4169E1; /* Detalhe em Azul JC */
+            font-size: 0.95rem;
+        }
+
+        .specs-list strong {
+            color: #4169E1;
+        }
+
+        .footer-note {
+            background-color: #161920;
+            border: 1px dashed #ef4444;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 0.85rem;
+            color: #dcdde1;
+            line-height: 1.5;
+        }
+
+        .update-tag {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 0.75rem;
+            color: #626d7a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="header-banner">
+            <h1>CONFIGURAÇÃO RECOMENDADA</h1>
+        </div>
+        
+        <div class="content">
+            <div class="intro-text">
+                Para obter o máximo desempenho do ecossistema <strong>JC-Softwares</strong> e garantir que suas operações, vendas e emissões rodem de forma instantânea, recomendamos os seguintes requisitos:
+            </div>
+
+            <ul class="specs-list">
+                <li>💾 <span><strong>Memória RAM:</strong> Mínimo de 8 GB (Recomendado)</span></li>
+                <li>⚡ <span><strong>Processador:</strong> Intel Core i3 / AMD Ryzen 3 ou superior</span></li>
+                <li>💽 <span><strong>Armazenamento:</strong> SSD com pelo menos 20 GB livres</span></li>
+                <li>🪟 <span><strong>Sistema Operacional:</strong> Windows 10 ou 11 (64 bits)</span></li>
+            </ul>
+
+            <div class="footer-note">
+                <strong>Nota de Compatibilidade:</strong> Em máquinas com hardware reduzido (como 4 GB de RAM), o sistema adotará rotinas automatizadas de otimização de memória. O funcionamento permanece ativo, porém rotinas complexas de relatórios podem apresentar maior tempo de processamento.
+            </div>
+
+            <div class="update-tag">
+                JC-SOFTWARES • ATUALIZADO EM 2026
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
