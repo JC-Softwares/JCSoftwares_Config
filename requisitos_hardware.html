@@ -10,11 +10,12 @@
             color: #f0f2f5;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 40px 20px;
+            padding: 10px; /* Reduzido para evitar que empurre o card */
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 80vh;
+            height: 100vh; /* Força ocupar exatamente a altura visível da tela */
+            overflow: hidden; /* Elimina qualquer chance de barra de rolagem */
         }
 
         .card {
@@ -22,53 +23,53 @@
             border: 1px solid #2f3640;
             border-radius: 16px; /* Cantos arredondados estilo celular */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            max-width: 550px;
+            max-width: 520px;
             width: 100%;
             overflow: hidden;
         }
 
         .header-banner {
             background: linear-gradient(135deg, #1e3c72, #2a5298); /* Banner azul moderno */
-            padding: 25px;
+            padding: 18px 20px; /* Mais compacto verticalmente */
             text-align: center;
             border-bottom: 2px solid #007bff;
         }
 
         .header-banner h1 {
             margin: 0;
-            font-size: 1.6rem;
+            font-size: 1.4rem; /* Levemente reduzido para equilibrar */
             font-weight: 600;
             color: #ffffff;
             letter-spacing: 0.5px;
         }
 
         .content {
-            padding: 30px;
+            padding: 22px 25px; /* Espaçamento interno mais inteligente */
         }
 
         .intro-text {
             color: #a0a8b5;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin-bottom: 25px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 18px;
         }
 
         .specs-list {
             list-style: none;
             padding: 0;
-            margin: 0 0 25px 0;
+            margin: 0 0 18px 0;
         }
 
         .specs-list li {
             background-color: #161920;
-            margin-bottom: 10px;
-            padding: 14px 18px;
+            margin-bottom: 8px; /* Mais colado para economizar tela vertical */
+            padding: 10px 15px; /* Ajuste fino */
             border-radius: 10px;
             display: flex;
             align-items: center;
             gap: 12px;
             border-left: 4px solid #4169E1; /* Detalhe em Azul JC */
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .specs-list strong {
@@ -79,16 +80,16 @@
             background-color: #161920;
             border: 1px dashed #ef4444;
             border-radius: 10px;
-            padding: 15px;
-            font-size: 0.85rem;
+            padding: 12px 15px;
+            font-size: 0.8rem;
             color: #dcdde1;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         .update-tag {
             text-align: center;
-            margin-top: 25px;
-            font-size: 0.75rem;
+            margin-top: 18px;
+            font-size: 0.7rem;
             color: #626d7a;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -108,14 +109,14 @@
             </div>
 
             <ul class="specs-list">
-                <li>💾 <span><strong>Memória RAM:</strong> Mínimo de 8 GB (Recomendado)</span></li>
+                <li>💾 <span><strong>Memória RAM:</strong> Mínimo de 6 GB (Recomendado)</span></li>
                 <li>⚡ <span><strong>Processador:</strong> Intel Core i3 / AMD Ryzen 3 ou superior</span></li>
                 <li>💽 <span><strong>Armazenamento:</strong> SSD com pelo menos 20 GB livres</span></li>
                 <li>🪟 <span><strong>Sistema Operacional:</strong> Windows 10 ou 11 (64 bits)</span></li>
             </ul>
 
             <div class="footer-note">
-                <strong>Nota de Compatibilidade:</strong> Em máquinas com hardware reduzido (como 4 GB de RAM), o sistema adotará rotinas automatizadas de otimização de memória. O funcionamento permanece ativo, porém rotinas complexas de relatórios podem apresentar maior tempo de processamento.
+                <strong>Nota de Compatibilidade:</strong> Em máquinas com hardware reduzido (abaixo do recomendado), o sistema adotará rotinas automatizadas de otimização de memória. O funcionamento permanece ativo, porém rotinas complexas de relatórios podem apresentar maior tempo de processamento.
             </div>
 
             <div class="update-tag">
