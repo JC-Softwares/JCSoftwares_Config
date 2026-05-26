@@ -1,0 +1,15 @@
+=== CONFIGURAÇÃO RECOMENDADA JC-SOFTWARES ===
+
+Para obter o máximo desempenho do sistema e evitar travamentos,
+recomendamos que o seu computador atenda aos seguintes requisitos:
+
+• Memória RAM: Mínimo de 8 GB (Recomendado)
+• Processador: Intel Core i3 / AMD Ryzen 3 ou superior
+• Armazenamento: SSD com pelo menos 20 GB livres
+• Sistema Operacional: Windows 10 ou 11 (64 bits)
+
+Caso seu hardware atual seja inferior (como sistemas com 4GB de RAM),
+o software funcionará em modo de compatibilidade otimizado, porém
+algumas operações pesadas de relatórios podem demorar mais.
+
+Atualizado em: 2026
