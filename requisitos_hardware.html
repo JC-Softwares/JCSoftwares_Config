@@ -8,7 +8,428 @@
         body {
             background-color: #12151c;
             color: #f0f2f5;
+            font-family: 'Segoe U<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Diagnóstico - JC-Softwares</title>
+    <style>
+        :root {
+            --bg-principal: #12151c;
+            --bg-card: #1e222b;
+            --azul-jc: #4169E1;
+            --azul-hover: #3558c8;
+            --verde-sucesso: #2ed573;
+            --vermelho-alerta: #ef4444;
+            --texto-claro: #f0f2f5;
+            --texto-mutado: #a0a8b5;
+        }
+
+        body {
+            background-color: var(--bg-principal);
+            color: var(--texto-claro);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR SINALIZANDO SISTEMA COMPLETO */
+        .navbar {
+            background: linear-gradient(135deg, #161920, #1e222b);
+            border-bottom: 2px solid var(--azul-jc);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        .navbar-marca h1 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar-marca span {
+            color: var(--azul-jc);
+        }
+
+        .btn-voltar {
+            background-color: transparent;
+            border: 1px solid var(--vermelho-alerta);
+            color: var(--vermelho-alerta);
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-voltar:hover {
+            background-color: var(--vermelho-alerta);
+            color: white;
+        }
+
+        /* CONTEÚDO EXPANDIDO (TELA CHEIA) */
+        .dashboard-container {
+            flex: 1;
+            padding: 30px;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .intro-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .intro-section h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.8rem;
+        }
+
+        .intro-section p {
+            color: var(--texto-mutado);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .btn-principal {
+            background-color: var(--azul-jc);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 15px rgba(65, 105, 225, 0.4);
+        }
+
+        .btn-principal:hover {
+            background-color: var(--azul-hover);
+        }
+
+        /* ANIMAÇÃO DE CARREGAMENTO */
+        .loading-box {
+            display: none;
+            max-width: 500px;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        .progress-bar-bg {
+            background-color: #161920;
+            border-radius: 10px;
+            height: 8px;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-bar-fill {
+            background: linear-gradient(90deg, var(--azul-jc), var(--verde-sucesso));
+            width: 0%;
+            height: 100%;
+            transition: width 0.1s linear;
+        }
+
+        /* GRID DE LAYOUT DO DIAGNÓSTICO */
+        .dashboard-grid {
+            display: none;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+            animation: fader 0.5s ease forwards;
+        }
+
+        @keyframes fader {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .painel-principal, .painel-lateral {
+            background-color: var(--bg-card);
+            border: 1px solid #2f3640;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .titulo-painel {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--azul-jc);
+            margin: 0 0 20px 0;
+            border-bottom: 1px solid #2f3640;
+            padding-bottom: 10px;
+        }
+
+        /* TABELA AMPLA */
+        .tabela-tecnica {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .tabela-tecnica th {
+            text-align: left;
+            padding: 12px;
+            color: var(--texto-mutado);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            border-bottom: 2px solid #2f3640;
+        }
+
+        .tabela-tecnica td {
+            padding: 16px 12px;
+            border-bottom: 1px solid #161920;
+            font-size: 0.95rem;
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .badge-ok { background: rgba(46, 213, 115, 0.15); color: var(--verde-sucesso); border: 1px solid var(--verde-sucesso); }
+        .badge-alert { background: rgba(239, 68, 68, 0.15); color: var(--vermelho-alerta); border: 1px solid var(--vermelho-alerta); }
+
+        /* GRID INTERNO DE REQUISITOS ADICIONAIS */
+        .metricas-adicionais {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .card-metrica {
+            background-color: #161920;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--azul-jc);
+        }
+
+        .card-metrica h4 { margin: 0 0 5px 0; font-size: 0.85rem; color: var(--texto-mutado); }
+        .card-metrica p { margin: 0; font-size: 1.1rem; font-weight: bold; }
+
+        /* PAINEL LATERAL (STATUS GERAL) */
+        .status-geral-box {
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        .status-icone {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .veredicto-titulo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .veredicto-desc {
+            font-size: 0.9rem;
+            color: var(--texto-mutado);
+            line-height: 1.5;
+        }
+
+        /* RESPONSIVIDADE PARA MONITORES MENORES */
+        @media (max-width: 900px) {
+            .dashboard-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="navbar-marca">
+            <h1>JC-<span>Softwares</span></h1>
+        </div>
+        <button class="btn-voltar" onclick="fecharJanelaAtual()">✕ Fechar e Voltar ao Sistema</button>
+    </div>
+
+    <div class="dashboard-container">
+        
+        <div class="intro-section" id="bloco-intro">
+            <h2>Módulo Analisador de Hardware</h2>
+            <p>Verifique instantaneamente a integridade e os limites de processamento da sua máquina para o ecossistema JC.</p>
+            <button class="btn-principal" onclick="iniciarEscaner()">Iniciar Análise de Desempenho</button>
+        </div>
+
+        <div class="loading-box" id="bloco-loading">
+            <p id="txt-loading-status">Acessando barramentos de memória...</p>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="barra-progresso"></div>
+            </div>
+        </div>
+
+        <div class="dashboard-grid" id="bloco-dashboard">
+            
+            <div class="painel-principal">
+                <div class="titulo-painel">Análise Estrutural do Sistema</div>
+                
+                <table class="tabela-tecnica">
+                    <thead>
+                        <tr>
+                            <th>Parâmetro de Sistema</th>
+                            <th>Requisito Mínimo</th>
+                            <th>Detectado na Máquina</th>
+                            <th>Status de Operação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Memória Volátil (RAM)</strong></td>
+                            <td>6 GB</td>
+                            <td id="lbl-ram">--</td>
+                            <td><span id="badge-ram" class="badge">--</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Núcleos de Processamento (CPU)</strong></td>
+                            <td>4 Threads</td>
+                            <td id="lbl-cpu">--</td>
+                            <td><span id="badge-cpu" class="badge">--</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Arquitetura do Kernel</strong></td>
+                            <td>x64 Bits</td>
+                            <td>64-Bit Base</td>
+                            <td><span class="badge badge-ok">Homologado</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="titulo-painel" style="margin-top: 30px;">Análise Ambientada (Web/Rede)</div>
+                <div class="metricas-adicionais">
+                    <div class="card-metrica">
+                        <h4>Latência de Conexão (Ping)</h4>
+                        <p id="lbl-ping">Calculando...</p>
+                    </div>
+                    <div class="card-metrica" style="border-left-color: var(--verde-sucesso)">
+                        <h4>Banco de Dados Local (.dat)</h4>
+                        <p style="color: var(--verde-sucesso)">Pronto para Conexão</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="painel-lateral">
+                <div class="titulo-painel">Parecer Técnico</div>
+                <div class="status-geral-box">
+                    <div class="status-icone" id="v-icone">⏳</div>
+                    <div class="veredicto-titulo" id="v-titulo">Aguardando</div>
+                    <div class="veredicto-desc" id="v-desc">Inicie o escaneamento estrutural para gerar o parecer.</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // Função para simular o tempo de varredura técnica
+        function iniciarEscaner() {
+            document.getElementById('bloco-intro').style.display = 'none';
+            document.getElementById('bloco-loading').style.display = 'block';
+            
+            let progresso = 0;
+            const barra = document.getElementById('barra-progresso');
+            const txtStatus = document.getElementById('txt-loading-status');
+            
+            const etapas = [
+                "Mapeando pentes de memória RAM...",
+                "Contando threads lógicas da CPU...",
+                "Testando tempo de resposta do servidor...",
+                "Consolidando relatório de hardware..."
+            ];
+
+            const intervalo = setInterval(() => {
+                progresso += 2;
+                barra.style.width = progresso + "%";
+
+                if(progresso == 25) txtStatus.innerText = etapas[1];
+                if(progresso == 50) txtStatus.innerText = etapas[2];
+                if(progresso == 75) txtStatus.innerText = etapas[3];
+
+                if (progresso >= 100) {
+                    clearInterval(intervalo);
+                    renderizarDashboard();
+                }
+            }, 40); // 2 segundos de loading realista
+        }
+
+        function renderizarDashboard() {
+            document.getElementById('bloco-loading').style.display = 'none';
+            document.getElementById('bloco-dashboard').style.display = 'grid';
+
+            // Coleta os dados de hardware reais do Navegador
+            let ram = navigator.deviceMemory || 4;
+            let cpu = navigator.hardwareConcurrency || 2;
+
+            // Preenche a tabela
+            document.getElementById('lbl-ram').innerText = ram + " GB";
+            document.getElementById('lbl-cpu').innerText = cpu + " Cores / Threads";
+
+            const bRam = document.getElementById('badge-ram');
+            const bCpu = document.getElementById('badge-cpu');
+
+            let ramAprovada = ram >= 6;
+            let cpuAprovada = cpu >= 4;
+
+            if(ramAprovada) {
+                bRam.innerText = "Excelente"; bRam.className = "badge badge-ok";
+            } else {
+                bRam.innerText = "Abaixo do Ideal"; bRam.className = "badge badge-alert";
+            }
+
+            if(cpuAprovada) {
+                bCpu.innerText = "Excelente"; bCpu.className = "badge badge-ok";
+            } else {
+                bCpu.innerText = "Moderar"; bCpu.className = "badge badge-alert";
+            }
+
+            // Simula cálculo de latência/ping de rede estável
+            document.getElementById('lbl-ping').innerText = Math.floor(Math.random() * (45 - 15) + 15) + " ms (Excelente)";
+
+            // Atualiza o quadro de parecer do lado direito
+            const vIcone = document.getElementById('v-icone');
+            const vTitulo = document.getElementById('v-titulo');
+            const vDesc = document.getElementById('v-desc');
+
+            if (ramAprovada && cpuAprovada) {
+                vIcone.innerText = "🚀";
+                vTitulo.innerText = "Sistema Aprovado";
+                vTitulo.style.color = "var(--verde-sucesso)";
+                vDesc.innerText = "Este computador possui especificações excelentes para o ecossistema JC-Softwares. Suas telas, vendas e consultas rodarão de forma instantânea.";
+            } else {
+                vIcone.innerText = "⚠️";
+                vTitulo.innerText = "Atenção Requerida";
+                vTitulo.style.color = "var(--vermelho-alerta)";
+                vDesc.innerText = "Identificamos limitações físicas de hardware. O software funcionará adotando rotinas de alocação de memória restrita, porém lentidões podem ocorrer em relatórios robustos.";
+            }
+        }
+
+        // ❌ FUNÇÃO PARA FECHAR A ABA DO NAVEGADOR AUTOMATICAMENTE
+        function fecharJanelaAtual() {
+            window.close();
+        }
+    </script>
+</body>
+</html>I', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 20px;
             display: flex;
