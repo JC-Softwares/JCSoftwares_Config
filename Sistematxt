@@ -3,5 +3,5 @@ DataNovaVersao: 25-02-2026
 ArquivoAtualizado:https://github.com/JC-Softwares/JCSoftwares_Config/releases/download/2026/Atualizacao_JC_Softwares_v1.1.0.4.exe
 DetalhesDaAtualizacao: -> Atualização do BANCO DE DADOS; [QUEBRA]-> Correção na interface; [QUEBRA]-> Correção na Atualização do Terminal CLIENTE.
 AtualizacaoObrigatoria: SIM
-StatusSistema: INDISPONÍVEL
-DetalhesStatus: Estamos Passando Por Uma Manutenção e Reestruturação Programada do Sistema. [QUEBRA] Por esse motivo, alguns recursos online podem sofrer instabilidades. [QUEBRA] Previsão de retorno às 03:00 horas da madrugada. [QUEBRA] Cód. 503
+StatusSistema: DISPONÍVEL
+DetalhesStatus: Estamos Passando por Manutenção no Sistema. [QUEBRA] Por esse motivo, alguns recursos online podem sofrer instabilidades. [QUEBRA] Previsão de retorno às 00:00 horas. [QUEBRA] Cód. 503
