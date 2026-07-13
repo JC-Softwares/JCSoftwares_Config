@@ -4,3 +4,4 @@ ArquivoAtualizado:https://github.com/JC-Softwares/JCSoftwares_Config/releases/do
 DetalhesDaAtualizacao: -> Atualização do BANCO DE DADOS; [QUEBRA]-> Correção na interface; [QUEBRA]-> Correção na Atualização do Terminal CLIENTE.
 AtualizacaoObrigatoria: SIM
 StatusSistema: INDISPONÍVEL
+DetalhesStatus: Reestruturação do Sistema de Veroificação Online
