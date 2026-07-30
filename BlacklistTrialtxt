@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Licenciamento - JC-Softwares</title>
+    <style>
+        :root {
+            --fundo-escuro: #121212;
+            --fundo-card: #1e1e1e;
+            --azul-moderno: #007bff;
+            --azul-pro: #00c853;
+            --texto-claro: #f0f0f0;
+            --texto-cinza: #b0b0b0;
+            --borda: #333;
+        }
+
+        body {
+            background-color: var(--fundo-escuro);
+            color: var(--texto-claro);
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 950px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            zoom: 1.0;
+        }
+
+        .title-area { text-align: center; margin-bottom: 30px; }
+        .title-area h1 { margin: 0; font-size: 2.2rem; color: var(--azul-moderno); }
+        .title-area p { color: var(--texto-cinza); margin-top: 10px; }
+
+        .cards-area { display: flex; gap: 30px; justify-content: center; align-items: stretch; }
+
+        .card {
+            background: var(--fundo-card);
+            border: 1px solid var(--borda);
+            border-radius: 20px;
+            padding: 25px;
+            width: 320px;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .card:hover { transform: translateY(-10px); border-color: var(--azul-moderno); }
+        .card.pro { border-color: var(--azul-pro); box-shadow: 0 10px 30px rgba(0, 200, 83, 0.1); }
+        
+        .price {
+            font-size: 2.5rem; 
+            font-weight: bold;
+            margin: 20px 0;
+            color: var(--texto-claro);
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 10px; /* <--- ADICIONE ISSO (ajuste o valor como preferir) */
+        }
+
+        #valor-pro-exibicao { font-size: 2.5rem; font-weight: bold; }
+
+        .unidade {
+            font-size: 1rem;
+            color: var(--texto-cinza);
+            font-weight: normal;
+            margin-left: 5px;
+        }
+
+        .features {
+            text-align: left;
+            margin: 20px 0;
+            flex-grow: 1;
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .features li::before { content: '✓'; color: var(--azul-pro); font-weight: bold; }
+
+        .btn-acao {
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            width: 100%;
+        }
+
+        .btn-trial { background: #333; color: white; border: 1px solid #444; }
+        .btn-pro { background: var(--azul-pro); color: white; }
+
+        .badge-pop {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: var(--azul-pro);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="title-area">
+            <h1>Escolha sua Licença</h1>
+            <p>Ative o potencial completo do JC-Softwares para sua empresa</p>
+        </div>
+
+        <div class="cards-area">
+            <div class="card" id="card-versao-trial">
+                <h2>Versão Trial</h2>
+                <div class="price">R$ 0<span class="unidade">/grátis</span></div>
+                <ul class="features">
+                    <li>Limite de 10 acessos ao sistema</li>
+                    <li>Módulos Varejo e Obras liberados</li>
+                    <li>Suporte limitado via e-mail</li>
+                    <li>Ideal para testar funcionalidades</li>
+                </ul>
+                <button id="btn-acionar-trial" class="btn-acao btn-trial" onclick="ativarTrial()">Ativar Avaliação</button>
+            </div>
+
+            <div class="card pro">
+                <div class="badge-pop">RECOMENDADO</div>
+                <h2>Versão Pro</h2>
+                <div class="price">
+                    R$<span id="valor-pro-exibicao">...</span><span class="unidade">/único</span>
+                </div>
+                <ul class="features">
+                    <li>Acesso vitalício ilimitado</li>
+                    <li>Backup automático garantido</li>
+                    <li>Suporte prioritário via WhatsApp</li>
+                    <li>Atualizações de segurança inclusas</li>
+                    <li>Sem mensalidades</li>
+                </ul>
+                <button class="btn-acao btn-pro" onclick="irParaPagamento()">Comprar Agora</button>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; text-align: center;">
+            <button class="btn-acao btn-trial" onclick="cancelarLicenciamento()" style="padding: 10px 40px; width: auto; opacity: 0.7;">
+                Cancelar e Sair
+            </button>
+        </div>
+    </div>
+
+    <div id="modalSair" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:11000;">
+        <div style="background:#1e1e1e; padding:30px; border-radius:15px; text-align:center; border:1px solid #444; width:380px;">
+            <h3 style="color:var(--texto-claro);">Deseja mesmo sair?</h3>
+            <div style="display:flex; gap:10px; margin-top:25px;">
+                <button onclick="document.getElementById('modalSair').style.display='none'" style="flex:1; padding:12px; border-radius:8px; border:none; background:#333; color:white; cursor:pointer;">Continuar</button>
+                <button onclick="sairDoSistema()" style="flex:1; padding:12px; border-radius:8px; border:none; background:#d32f2f; color:white; cursor:pointer; font-weight:bold;">Sair agora</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalConfirma" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:9999;">
+        <div style="background:#1e1e1e; padding:30px; border-radius:20px; text-align:center; border:1px solid #444; width:450px;">
+            <h2 style="color: #ff9800; margin-top:0;">⚠️ Atenção!</h2>
+            <p>Você tem certeza que deseja continuar com a versão de teste?</p>
+            <div style="display:flex; gap:15px; margin-top:30px;">
+                <button id="btnCancelarTrial" onclick="fecharModalConfirma()" style="flex:1; padding:15px; border-radius:12px; border:none; background:#333; color:white; cursor:pointer; font-weight:bold;">CANCELAR</button>
+                <button onclick="iniciarProcessoAtivacao('TRIAL', '0,00')" style="flex:1; padding:15px; border-radius:12px; border:none; background:#007bff; color:white; cursor:pointer; font-weight:bold;">SIM, TESTAR</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let ipcRenderer;
+        try { ipcRenderer = require('electron').ipcRenderer; } catch (e) { console.error("Erro Electron"); }
+
+        let valorProGlobal = "149,00";
+
+        // Função auxiliar para exibir mensagens sem quebrar o layout (usa o seu próprio modal)
+        function exibirModalNotificacao(titulo, mensagem, corTitulo = "#f8fafc") {
+            const cardCorpo = document.getElementById('conteudoCardSucesso');
+            if (cardCorpo) {
+                cardCorpo.innerHTML = `
+                    <h4 style="color: ${corTitulo}; margin: 0 0 5px 0; font-size: 0.88rem;">${titulo}</h4>
+                    <p style="font-size: 0.8rem; color: #cbd5e1; margin: 0; line-height: 1.4;">${mensagem}</p>
+                `;
+                document.getElementById('modalSucesso').style.display = 'flex';
+            }
+        }
+
+        async function verificarLimiteTrial() {
+            if (!ipcRenderer) return;
+
+            try {
+                const config = await ipcRenderer.invoke('obter-configuracoes');
+                
+                if (config) {
+                    const statusAtual = config.status_licenca ? config.status_licenca.trim().toUpperCase() : "";
+                    const acessosAtual = parseInt(config.qtd_acessos) || 0;
+
+                    if (statusAtual === 'TRIAL' && acessosAtual >= 10) {
+                        const btnTrial = document.getElementById('btn-acionar-trial');
+                        const cardTrial = document.getElementById('card-versao-trial');
+
+                        if (btnTrial) {
+                            btnTrial.disabled = true;
+                            btnTrial.innerText = "AVALIAÇÃO ESGOTADA";
+                            btnTrial.style.background = "#222";
+                            btnTrial.style.color = "#777";
+                            btnTrial.style.borderColor = "#333";
+                            btnTrial.style.cursor = "not-allowed";
+                        }
+
+                        if (cardTrial) {
+                            cardTrial.style.opacity = "0.4";
+                            cardTrial.style.pointerEvents = "none";
+                            cardTrial.style.transform = "none";
+                        }
+                    }
+                }
+            } catch (err) {
+                console.error("Erro ao validar limites de segurança do Trial:", err);
+            }
+        }
+
+        async function buscarPrecoAtualizado() {
+            const url = "https://raw.githubusercontent.com/JC-Softwares/JCSoftwares_Config/main/Planotxt";
+            try {
+                const res = await fetch(url);
+                if (res.ok) {
+                    const texto = await res.text();
+                    const regex = /ValorPro:\s*([\d,.]+)/;
+                    const match = texto.match(regex);
+                    if (match && match[1]) {
+                        valorProGlobal = match[1].trim();
+                        document.getElementById('valor-pro-exibicao').innerText = valorProGlobal;
+                    }
+                }
+            } catch (e) { 
+                document.getElementById('valor-pro-exibicao').innerText = "149,00"; 
+            }
+        }
+
+        window.onload = async () => {
+            await buscarPrecoAtualizado();
+            await verificarLimiteTrial();
+        };
+
+        function cancelarLicenciamento() { document.getElementById('modalSair').style.display = 'flex'; }
+        function sairDoSistema() { if (ipcRenderer) ipcRenderer.send('fechar-sistema'); else window.close(); }
+        function ativarTrial() { document.getElementById('modalConfirma').style.display = 'flex'; }
+        function fecharModalConfirma() { document.getElementById('modalConfirma').style.display = 'none'; }
+
+        async function iniciarProcessoAtivacao(status, valor) {
+            fecharModalConfirma();
+            
+            if (ipcRenderer) {
+                try {
+                    const config = await ipcRenderer.invoke('obter-configuracoes');
+
+                    const resposta = await ipcRenderer.invoke('registrar-ativacao', {
+                        emailCliente: config.email_cliente, 
+                        status: status, 
+                        valor: valor, 
+                        hardwareID: "PEGAR_NO_MAIN" 
+                    });
+
+                    if (resposta.sucesso) {
+                        window.location.href = 'setup.html';
+                    } else {
+                        // ❌ REPLACED ALERT: Usa o modal estilizado vermelho para falha
+                        exibirModalNotificacao("⚠️ Falha na Ativação", "Não foi possível registrar: " + resposta.erro, "#ef4444");
+                    }
+                } catch (err) {
+                    console.error("Erro na comunicação com o sistema:", err);
+                    // ❌ REPLACED ALERT: Usa o modal estilizado vermelho para erro crítico
+                    exibirModalNotificacao("💥 Erro Crítico", "Ocorreu uma falha interna de comunicação com a infraestrutura local.", "#ef4444");
+                }
+            }
+        }
+
+        function irParaPagamento() { window.location.href = `pagamento.html?valor=${valorProGlobal}`; }
+    </script>
+</body>
+</html>
